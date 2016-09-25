@@ -40,5 +40,8 @@ libraryDependencies ++= Seq(
   "com.mohiva" %% "play-silhouette-testkit" % "4.0.0" % "test",
   "net.codingwell" %% "scala-guice" % "4.0.1",
   "com.iheart" %% "ficus" % "1.2.6",
-	"com.typesafe.play" %% "play-mailer" % "5.0.0"
+	"com.typesafe.play" %% "play-mailer" % "5.0.0",
+  "com.typesafe.play"   %%   "play-slick"              %   "2.0.0",
+  "mysql" % "mysql-connector-java" % "5.1.39",
+  "org.slf4j" % "slf4j-nop" % "1.6.4"
 )

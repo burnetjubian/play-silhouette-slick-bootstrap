@@ -1,4 +1,4 @@
-@(user: User)(implicit request: RequestHeader, messages: Messages)
+@(user: models.DBTableDefinitions.User)(implicit request: RequestHeader, messages: Messages)
 @default("Signed Up", loggedUser = Some(user)) {
 	<p>@Messages("signup.thanks", user.fullName)</p>
 	<p>@Messages("signup.ready")</p>

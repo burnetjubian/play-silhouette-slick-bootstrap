@@ -5,7 +5,7 @@ import play.api.i18n.I18nSupport
 import com.mohiva.play.silhouette.api.{ Silhouette, Environment }
 import com.mohiva.play.silhouette.api.actions._
 import com.mohiva.play.silhouette.impl.authenticators.CookieAuthenticator
-import models.User
+import models.DBTableDefinitions._
 
 trait AuthController extends Controller with I18nSupport {
   def silhouette: Silhouette[MyEnv]

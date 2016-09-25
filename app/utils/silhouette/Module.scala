@@ -20,7 +20,8 @@ import play.api.libs.concurrent.Execution.Implicits._
 import play.api.Configuration
 import net.ceedubs.ficus.Ficus._
 import net.ceedubs.ficus.readers.ArbitraryTypeReader._
-import models.{ User, MailTokenUser }
+import models.MailTokenUser
+import models.DBTableDefinitions._
 import utils.{ MailService, MailServiceImpl, ErrorHandler }
 
 /**
@@ -45,7 +46,7 @@ class Module extends AbstractModule with ScalaModule {
     bind[EventBus].toInstance(EventBus())
     bind[Clock].toInstance(Clock())
 
-    bind[DelegableAuthInfoDAO[PasswordInfo]].toInstance(new PasswordInfoDAO())
+    bind[DelegableAuthInfoDAO[PasswordInfo]].to[PasswordInfoDAO]
   }
 
   /**

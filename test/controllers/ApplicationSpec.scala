@@ -1,6 +1,6 @@
 package controllers
 
-import models.User
+import models.DBTableDefinitions._
 import utils.silhouette._
 import com.google.inject.AbstractModule
 import net.codingwell.scalaguice.ScalaModule

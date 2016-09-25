@@ -1,6 +1,5 @@
 package controllers
 
-import models._
 import utils.silhouette._
 import com.mohiva.play.silhouette.api.Silhouette
 import play.api._

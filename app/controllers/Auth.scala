@@ -1,6 +1,7 @@
 package controllers
 
-import models._
+import models.DBTableDefinitions._
+import models.MailTokenUser
 import utils.silhouette._
 import utils.silhouette.Implicits._
 import com.mohiva.play.silhouette.api.{ Silhouette, LoginInfo, SignUpEvent, LoginEvent, LogoutEvent }
@@ -52,14 +53,14 @@ class Auth @Inject() (
 
   val signUpForm = Form(
     mapping(
-      "id" -> ignored(None: Option[Long]),
+      "id" -> ignored(0: Long),
       "email" -> email.verifying(maxLength(250)),
-      "emailConfirmed" -> ignored(false),
+      "emailConfirmed" -> ignored(0),
       "password" -> nonEmptyText.verifying(minLength(6)),
       "nick" -> nonEmptyText,
       "firstName" -> nonEmptyText,
       "lastName" -> nonEmptyText,
-      "services" -> list(nonEmptyText)
+      "services" -> nonEmptyText
     )(User.apply)(User.unapply)
   )
 
@@ -108,8 +109,8 @@ class Auth @Inject() (
         userService.retrieve(token.email).flatMap {
           case Some(user) => {
             env.authenticatorService.create(user.email).flatMap { authenticator =>
-              if (!user.emailConfirmed) {
-                userService.save(user.copy(emailConfirmed = true)).map { newUser =>
+              if (user.emailConfirmed != 1) {
+                userService.save(user.copy(emailConfirmed = 1)).map { newUser =>
                   env.eventBus.publish(SignUpEvent(newUser, request))
                 }
               }

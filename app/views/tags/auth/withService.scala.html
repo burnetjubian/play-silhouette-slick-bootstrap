@@ -1,4 +1,4 @@
-@(anyOf: String*)(body: Html)(implicit loggedUser: User)
+@(anyOf: String*)(body: Html)(implicit loggedUser: models.DBTableDefinitions.User)
 @if(utils.silhouette.WithService.isAuthorized(loggedUser, anyOf:_*)) {
 	@body
 }

@@ -1,6 +1,6 @@
 package utils
 
-import models.User
+import models.DBTableDefinitions._
 import play.twirl.api.Html
 import play.api.i18n.Messages
 import views.html.mails
