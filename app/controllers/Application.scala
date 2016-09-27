@@ -1,14 +1,11 @@
 package controllers
 
-import utils.silhouette._
+import javax.inject.{Inject, Singleton}
+
 import com.mohiva.play.silhouette.api.Silhouette
 import play.api._
-import play.api.mvc._
-import play.api.Play.current
-import play.api.i18n.{ MessagesApi, Messages, Lang }
-import scala.concurrent.Future
-import scala.concurrent.ExecutionContext.Implicits._
-import javax.inject.{ Inject, Singleton }
+import play.api.i18n.{Lang, MessagesApi}
+import utils.silhouette._
 
 @Singleton
 class Application @Inject() (val silhouette: Silhouette[MyEnv], val messagesApi: MessagesApi) extends AuthController {
