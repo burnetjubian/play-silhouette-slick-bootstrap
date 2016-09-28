@@ -1,10 +1,10 @@
 package controllers
 
-import javax.inject.{Inject, Singleton}
+import javax.inject.{ Inject, Singleton }
 
 import com.mohiva.play.silhouette.api.Silhouette
 import play.api._
-import play.api.i18n.{Lang, MessagesApi}
+import play.api.i18n.{ Lang, MessagesApi }
 import utils.silhouette._
 
 @Singleton
